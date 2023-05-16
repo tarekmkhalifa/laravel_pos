@@ -30,7 +30,8 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.users.update', $user->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('dashboard.users.update', $user->id) }}" method="post"
+                        enctype="multipart/form-data">
 
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
@@ -56,8 +57,9 @@
                         </div>
 
                         <div class="form-group">
-                            <img src="{{ asset('uploads/user_images/default.png') }}" style="width: 100px"
-                                class="img-thumbnail image-preview" alt="">
+                            <img src="{{ asset("uploads/user_images/$user->image") }}" style="width: 100px;"
+                                class="img-thumbnail image-preview" alt="@lang('site.users')">
+                            <td>
                         </div>
 
                         <div class="form-group">
@@ -92,11 +94,8 @@
                                         <div class="tab-pane {{ $index == 0 ? 'active' : '' }}" id="{{ $model }}">
 
                                             @foreach ($maps as $map)
-                                                <label><input 
-                                                    @if ($user->hasPermission($map . '_' . $model))
-                                                        checked
-                                                    @endif
-                                                    type="checkbox" name="permissions[]"
+                                                <label><input @if ($user->hasPermission($map . '_' . $model)) checked @endif
+                                                        type="checkbox" name="permissions[]"
                                                         value="{{ $map . '_' . $model }}"> @lang('site.' . $map)</label>
                                             @endforeach
 

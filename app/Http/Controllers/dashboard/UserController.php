@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\dashboard;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\dashboard\UserStoreRequest;
-use App\Http\Requests\dashboard\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
+use App\Http\Requests\dashboard\UserStoreRequest;
+use App\Http\Requests\dashboard\UserUpdateRequest;
 
 class UserController extends Controller
 {
@@ -46,6 +47,13 @@ class UserController extends Controller
             'password' => bcrypt($request->password),
         ];
 
+        if ($request->image) {
+            Image::make($request->image)
+                ->resize(300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save('uploads/user_images/' . $request->image->hashName());
+            $data['image'] = $request->image->hashName();
+        }
         // inser in db
         $user = User::create($data);
         $user->addRole('admin');
@@ -70,6 +78,19 @@ class UserController extends Controller
             'email' => $request->email,
         ];
 
+        if ($request->image) {
+            Image::make($request->image)
+                ->resize(300, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save('uploads/user_images/' . $request->image->hashName());
+            $data['image'] = $request->image->hashName();
+            // delete old photo from server
+            if ($user->image !== 'default.png') {
+                $directory = "uploads/user_images/$user->image";
+                if ($directory) unlink($directory);
+            }
+        }
+        
         // inser in db
         $user->update($data);
         // update permissions
@@ -85,6 +106,10 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+        if ($user->image !== 'default.png') {
+            $directory = "uploads/user_images/$user->image";
+            if ($directory) unlink($directory);
+        }
         $user->delete();
         session()->flash('success', __('site.deleted_successfully'));
         return redirect()->route('dashboard.users.index');

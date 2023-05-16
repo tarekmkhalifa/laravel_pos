@@ -24,8 +24,10 @@ class UserStoreRequest extends FormRequest
         return [
             'first_name' => ['required', 'min:2'],
             'last_name' => ['required', 'min:2'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email','unique:users'],
             'password' => ['required', 'min:6', 'confirmed'],
+            'image' => ['nullable', 'mimes:png, jpg, jpeg'],
+            'permissions' => ['required', 'min:1']
         ];
     }
 }

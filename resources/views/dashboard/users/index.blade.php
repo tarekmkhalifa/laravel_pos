@@ -80,8 +80,8 @@
                                         <td>{{ $user->first_name }}</td>
                                         <td>{{ $user->last_name }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td><img src="{{ $user->image_path }}" style="width: 100px;" class="img-thumbnail"
-                                                alt=""></td>
+                                        <td><img src="{{asset("uploads/user_images/$user->image") }}" style="width: 100px;" class="img-thumbnail"
+                                                alt="@lang('site.users')"></td>
                                         <td>
                                             @if (auth()->user()->hasPermission('update_users'))
                                                 <a href="{{ route('dashboard.users.edit', $user->id) }}"
