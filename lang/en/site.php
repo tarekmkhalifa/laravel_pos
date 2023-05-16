@@ -23,6 +23,8 @@ return [
     'remember_me' => 'Remember Me',
     'password' => 'Password',
     'password_confirmation' => 'Confirm Password',
+    'forgot_password' => 'Forgot Your Password',
+
 
     'added_successfully' => 'Added Successfully',
     'updated_successfully' => 'Updated Successfully',
@@ -41,6 +43,8 @@ return [
     'edit_order' => 'Edit order',
 
     'users' => 'Moderators',
+    'add_user' => 'Add moderator',
+    'edit_user' => 'Edit moderator',
     'first_name' => 'First name',
     'last_name' => 'Last name',
     'email' => 'Email',

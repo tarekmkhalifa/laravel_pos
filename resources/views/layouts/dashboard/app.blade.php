@@ -188,29 +188,27 @@
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ asset('dashboard_files/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-                            <span class="hidden-xs">{{ 'first_name' }} {{ 'last_name' }}</span>
+                            <span class="hidden-xs">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span>
                         </a>
                         <ul class="dropdown-menu">
-
                             {{--<!-- User image -->--}}
                             <li class="user-header">
                                 <img src="{{ asset('dashboard_files/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
 
                                 <p>
-                                    {{ 'first_name' }} {{ 'last_name' }}
-                                    <small>Member since 2 days</small>
+                                    {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
+                                    <small>Member since {{ auth()->user()->created_at }} </small>
                                 </p>
                             </li>
 
                             {{--<!-- Menu Footer-->--}}
                             <li class="user-footer">
 
-
                                 <a href="" class="btn btn-default btn-flat" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">@lang('site.logout')</a>
-
-                                <form id="logout-form" action="" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
                                     @csrf
+                                    <button type="submit"></button>
                                 </form>
 
                             </li>

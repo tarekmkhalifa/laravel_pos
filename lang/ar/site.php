@@ -21,8 +21,9 @@ return [
 
     'login' => 'تسجيل الدخول',
     'remember_me' => 'تذكرني',
-    'password' => 'كلمه المرور',
-    'password_confirmation' => 'تاكيد كلمه المرور',
+    'password' => 'كلمة المرور',
+    'password_confirmation' => 'تاكيد كلمة المرور',
+    'forgot_password' => 'نسيت كلمة المرور',
 
     'added_successfully' => 'تم اضافه البيانات بنجاح',
     'updated_successfully' => 'تم تعديل البيانات بنجاح',
@@ -41,6 +42,8 @@ return [
     'edit_order' => 'تعديل طلب',
 
     'users' => 'المشرفين',
+    'add_user' => 'اضافة مشرف',
+    'edit_user' => 'تعديل مشرف',
     'first_name' => 'الاسم الاول',
     'last_name' => 'الاسم الاخير',
     'email' => 'البريد الاكتروني',
