@@ -53,6 +53,8 @@ return [
     'permissions' => 'الصلاحيات',
 
     'categories' => 'الاقسام',
+    'add_category' => 'اضافة قسم',
+    'edit_category' => 'تعديل قسم',
     'all_categories' => 'كل الاقسام',
     'name' => 'الاسم',
     'description' => 'الوصف',

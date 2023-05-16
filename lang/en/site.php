@@ -54,6 +54,8 @@ return [
     'permissions' => 'Permissions',
 
     'categories' => 'Categories',
+    'add_category' => 'Add category',
+    'edit_category' => 'Edit category',
     'all_categories' => 'All Categories',
     'name' => 'Name',
     'description' => 'Description',

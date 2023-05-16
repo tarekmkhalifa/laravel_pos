@@ -94,7 +94,7 @@ class UserController extends Controller
             }
         }
         
-        // inser in db
+        // update in db
         $user->update($data);
         // update permissions
         if ($request->permissions) {
