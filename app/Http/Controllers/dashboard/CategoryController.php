@@ -42,8 +42,10 @@ class CategoryController extends Controller
 
         // prepare data
         $data = [
-            'name' => $request->name
+            'ar' => $request->ar,
+            'en' => $request->en
         ];
+        
         // insert in db
         Category::create($data);
         session()->flash('success', __('site.added_successfully'));
@@ -61,8 +63,10 @@ class CategoryController extends Controller
 
         // prepare data
         $data = [
-            'name' => $request->name
+            'ar' => $request->ar,
+            'en' => $request->en
         ];
+        
         // update in db
         $category->update($data);
         session()->flash('success', __('site.updated_successfully'));

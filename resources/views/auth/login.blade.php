@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Log in</title>
+    <title>Login</title>
 
     {{--<!-- Bootstrap 3.3.7 -->--}}
     <link rel="stylesheet" href="{{ asset('dashboard_files/css/bootstrap.min.css') }}">
@@ -36,7 +36,7 @@
 <div class="login-box">
 
     <div class="login-logo">
-        <a href="../../index2.html"><b>Admin</b>LTE</a>
+        <b>Login</b>
     </div><!-- end of login lgo -->
 
     <div class="login-box-body">

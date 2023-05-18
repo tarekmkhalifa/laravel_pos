@@ -212,5 +212,14 @@ return [
         'updated_at'               => 'updated at',
         'username'                 => 'username',
         'year'                     => 'year',
+
+        'ar' => [
+            'name' => 'Name in Arabic'
+        ],
+
+        'en' => [
+            'name' => 'Name in English'
+        ]
     ],
+
 ];
