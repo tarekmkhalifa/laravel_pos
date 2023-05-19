@@ -11,6 +11,15 @@ use Illuminate\Http\Request;
 class ClientController extends Controller
 {
 
+        // middleware permissions
+        public function __construct()
+        {
+            $this->middleware('permission:read_clients')->only('index');
+            $this->middleware('permission:create_clients')->only('create');
+            $this->middleware('permission:update_clients')->only('edit');
+            $this->middleware('permission:delete_clients')->only('destroy');
+        }
+
     public function index(Request $request)
     {
         $clients = Client::when($request->search, function ($q) use ($request) {
