@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\dashboard\CategoryController;
+use App\Http\Controllers\dashboard\ClientController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\DashboardController;
 use App\Http\Controllers\dashboard\ProductController;
@@ -12,6 +13,8 @@ Route::prefix('dashboard')->middleware(['auth'])->name('dashboard.')->group(func
     Route::resource('categories', CategoryController::class)->except('show');
     // Product routes
     Route::resource('products', ProductController::class)->except('show');
+    // Clients routes
+    Route::resource('clients', ClientController::class)->except('show');
     // User(admin) routes
     Route::resource('users', UserController::class)->except('show');
 });

@@ -34,6 +34,7 @@ return [
     'no_records' => 'No records yet',
 
     'clients' => 'Clients',
+    'add_client' => 'Add client',
     'client_name' => 'Client name',
     'phone' => 'Phone',
     'address' => 'Address',

@@ -217,6 +217,8 @@ return [
         'purchase_price'           => 'Purchase price',
         'sale_price'               => 'Sale price',
         'stock'                    => 'Stock',
+        'phone.0'                    => 'Phone',
+
 
         'ar' => [
             'name' => 'Name in Arabic',

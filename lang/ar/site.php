@@ -33,6 +33,7 @@ return [
     'no_records' => 'للاسف لا يوجد اي سجلات',
 
     'clients' => 'العملاء',
+    'add_client' => 'اضافة عميل',
     'client_name' => 'اسم العميل',
     'phone' => 'التلفون',
     'address' => 'العنوان',
