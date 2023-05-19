@@ -212,13 +212,20 @@ return [
         'updated_at'               => 'updated at',
         'username'                 => 'username',
         'year'                     => 'year',
+        'permissions'              => 'permissions',
+        'category_id'              => 'Category',
+        'purchase_price'           => 'Purchase price',
+        'sale_price'               => 'Sale price',
+        'stock'                    => 'Stock',
 
         'ar' => [
-            'name' => 'Name in Arabic'
+            'name' => 'Name in Arabic',
+            'description' => 'Description in Arabic'
         ],
 
         'en' => [
-            'name' => 'Name in English'
+            'name' => 'Name in English',
+            'description' => 'Description in English'
         ]
     ],
 

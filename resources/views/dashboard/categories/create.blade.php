@@ -30,11 +30,9 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.categories.store') }}" method="post" enctype="multipart/form-data">
-
-                        {{ csrf_field() }}
-                        {{ method_field('post') }}
-
+                    <form action="{{ route('dashboard.categories.store') }}" method="post">
+                        @csrf
+            
                         @foreach (config('translatable.locales') as $locale )
                         <div class="form-group">
                             <label>@lang("site.$locale.name")</label>

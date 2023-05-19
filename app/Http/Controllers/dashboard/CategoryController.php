@@ -22,11 +22,10 @@ class CategoryController extends Controller
 
     public function index(Request $request)
     {
-        $categories = Category::where(function ($res) use ($request) {
-            return $res->when($request->search, function ($q) use ($request) {
-                return $q->where('name', 'like', '%' . $request->search . '%');
-            });
-        })->latest()->paginate(5);
+        $categories = Category::when($request->search, function ($q) use ($request) {
+            return $q->whereTranslationLike('name', '%' . $request->search . '%');
+        })
+            ->latest()->paginate(5);
 
         return view('dashboard.categories.index', compact('categories'));
     }
@@ -45,7 +44,7 @@ class CategoryController extends Controller
             'ar' => $request->ar,
             'en' => $request->en
         ];
-        
+
         // insert in db
         Category::create($data);
         session()->flash('success', __('site.added_successfully'));
@@ -66,7 +65,7 @@ class CategoryController extends Controller
             'ar' => $request->ar,
             'en' => $request->en
         ];
-        
+
         // update in db
         $category->update($data);
         session()->flash('success', __('site.updated_successfully'));

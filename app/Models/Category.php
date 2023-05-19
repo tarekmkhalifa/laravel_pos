@@ -9,9 +9,13 @@ use Astrotomic\Translatable\Translatable;
 
 class Category extends Model implements TranslatableContract
 {
-    use HasFactory;
-    use Translatable;
+    use HasFactory, Translatable;
 
     public $translatedAttributes = ['name'];
     protected $fillable = [];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

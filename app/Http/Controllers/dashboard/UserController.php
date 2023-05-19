@@ -30,7 +30,7 @@ class UserController extends Controller
                     ->orWhere('last_name', 'like', '%' . $request->search . '%');
             });
         })->latest()->paginate(5);
-        
+                
         return view('dashboard.users.index', compact('users'));
     }
 
@@ -43,13 +43,8 @@ class UserController extends Controller
     {
         // validate on request
         // prepare data
-        $data = [
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-        ];
-
+        $data = [];
+        // image
         if ($request->image) {
             Image::make($request->image)
                 ->resize(300, null, function ($constraint) {
@@ -57,6 +52,14 @@ class UserController extends Controller
                 })->save('uploads/user_images/' . $request->image->hashName());
             $data['image'] = $request->image->hashName();
         }
+
+        $data += [
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ];
+
         // inser in db
         $user = User::create($data);
         $user->addRole('admin');

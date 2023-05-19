@@ -30,7 +30,7 @@
 
                     @include('partials._errors')
 
-                    <form action="{{ route('dashboard.categories.update', $category->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('dashboard.categories.update', $category->id) }}" method="post">
 
                         @csrf
                         @method('PUT')
