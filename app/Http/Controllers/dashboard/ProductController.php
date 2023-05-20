@@ -32,7 +32,7 @@ class ProductController extends Controller
         })->when($request->category_id, function ($q) use ($request) {
             // filter by category_id
             return $q->where('category_id', $request->category_id);
-        })->latest()->paginate(5);
+        })->latest()->paginate(10);
 
         return view('dashboard.products.index', compact('categories', 'products'));
     }
