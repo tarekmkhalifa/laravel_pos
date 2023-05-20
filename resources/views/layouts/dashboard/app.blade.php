@@ -197,7 +197,7 @@
 
                                 <p>
                                     {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
-                                    <small>Member since {{ auth()->user()->created_at }} </small>
+                                    <small>Member since {{ auth()->user()->created_at->toFormattedDateString() }} </small>
                                 </p>
                             </li>
 

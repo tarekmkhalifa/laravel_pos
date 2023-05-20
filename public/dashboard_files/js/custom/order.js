@@ -61,6 +61,7 @@ $(document).ready(function () {
 
         e.preventDefault();
 
+        $('#show_products').show();
         $('#loading').css('display', 'flex');
         
         var url = $(this).data('url');
